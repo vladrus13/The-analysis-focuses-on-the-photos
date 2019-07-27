@@ -1,2 +1,3 @@
 # The-analysis-focuses-on-the-photos
-The analysis focuses on the photos Oo
+
+Это приложение создано для определения числа фокусов и их площади в клетках.
