@@ -3,7 +3,11 @@
 #include <utility>
 #include <iostream>
 
-Picture::Picture(cv::Mat red, cv::Mat green, cv::Mat blue) : red_(std::move(red)), green_(std::move(green)), blue_(std::move(blue)) {}
+Picture::Picture(const cv::Mat &red, const cv::Mat& green, const cv::Mat& blue) : red_(red), green_(green), blue_(blue) {}
+
+Picture::Picture(cv::Mat&& red, cv::Mat&& green, cv::Mat&& blue) : red_(red), green_(green), blue_(blue) {}
+
+Picture::Picture() : red_(), green_(), blue_() {}
 
 const cv::Mat & Picture::get_red() {
     return red_;
@@ -43,6 +47,6 @@ bool Picture::is_nucleus(int x, int y) {
 }
 
 std::ostream &operator<<(std::ostream &os, const Picture &pic) {
-    os << "Red: " << pic.red_ << "\n" << "Green: " << pic.green_ << "\n" << "Blue: " << pic.green_ << "\n";
+    os << "Red: " << pic.red_ << "\n" << "Green: " << pic.green_ << "\n" << "Blue: " << pic.blue_ << "\n";
     return os;
 }

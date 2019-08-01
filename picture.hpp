@@ -10,7 +10,9 @@ class Picture {
     cv::Mat blue_;
     tmask nucleus_mask_;
 public:
-    explicit Picture(cv::Mat red, cv::Mat green, cv::Mat blue);
+    explicit Picture(const cv::Mat &red, const cv::Mat &green, const cv::Mat &blue);
+	explicit Picture(cv::Mat&& red, cv::Mat&& green, cv::Mat&& blue);
+	Picture();
     const cv::Mat &get_red();
     const cv::Mat &get_green();
     const cv::Mat &get_blue();
